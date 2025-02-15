@@ -1,0 +1,28 @@
+.container {
+  max-width: 1140px;
+  margin: auto;
+  .online {
+    color: #c6c3c3;
+    font-size: 12px;
+    text-align: end;
+    margin: 4px 29px;
+  }
+  .title {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 24px;
+    text-align: center;
+  }
+  .tours {
+    margin-top: 16px;
+  }
+
+  .pagination {
+    .pagination_list {
+      list-style-type: none;
+      display: table;
+      margin: 20px auto;
+      display: flex;
+    }
+  }
+}

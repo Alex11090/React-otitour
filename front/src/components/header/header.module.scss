@@ -1,0 +1,145 @@
+:global(.dropdown-item.active) {
+  color: yellow !important;
+  background-color: rgb(247, 123, 123) !important;
+}
+
+.bgTop {
+  background-color: #d82124de;
+  font-size: 14px;
+  color: white;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+
+  .spanTop {
+    padding-top: 3px;
+    font-size: 12px;
+  }
+}
+.icoTop {
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+
+.telTop {
+  font-size: 12px;
+  color: white;
+}
+.bgbodytertiary {
+  background-color: #d82124de;
+  position: sticky !important;
+  top: 0;
+  z-index: 15;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 1px;
+  font-size: 14px;
+  .navImg {
+    width: 110px;
+  }
+  .brand {
+    color: white;
+    font-size: 12px;
+  }
+  .navLink {
+    color: white !important;
+  }
+
+  .navLink:hover {
+    color: yellow !important;
+    // background-color: #fa7575;
+  }
+  //   .navbar-nav.nav-link.active {
+  //     color: white !important;
+  //   }
+  .navDropdown > * {
+    color: rgb(255, 255, 255) !important;
+  }
+  .navDropdown > * > a {
+    color: rgb(255, 255, 255) !important;
+    font-size: 14px;
+  }
+  .navDropdown > * > a:hover {
+    // color: rgb(255, 255, 255) !important;
+    background-color: #fa7575;
+  }
+
+  .collapse {
+    flex-grow: 0;
+  }
+}
+
+.navbar-nav > .nav-link {
+  margin-left: 12px !important;
+}
+
+.dropdown-toggle {
+  color: white !important; /* Заголовок меню будет белого цвета */
+}
+.navbar-toggler {
+  color: white;
+}
+
+.tango {
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   transition: opacity 0.3s ease;
+}
+.itravel {
+  //   opacity: 1;
+  //   visibility: visible;
+}
+
+@media (max-width: 760px) {
+  .bgbodytertiary {
+    position: sticky !important;
+    top: 0;
+    z-index: 15;
+  }
+}
+.navbar-collapse .header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #d82124de;
+  width: 100%;
+  padding: 5px 0 5px 0;
+
+  .logoImg {
+    max-width: 120px;
+  }
+
+  .haederNav {
+    width: 77%;
+    align-self: center;
+
+    .nav_menuTop {
+      display: flex;
+      color: white;
+      a {
+        margin-left: 10px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+      }
+    }
+
+    .sp_column {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      padding: 5px 0;
+    }
+
+    .nav_menu {
+      display: flex;
+
+      .itemNav2 {
+        margin-left: 10px;
+        color: white;
+        a {
+          font-family: "Montserrat", sans-serif;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

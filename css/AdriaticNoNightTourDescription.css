@@ -1,0 +1,441 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+#program {
+  padding: 33px 0 46px 0;
+}
+
+#about_tour #tour_name {
+  text-align: center;
+  line-height: 1.3em;
+  margin-bottom: 10px;
+}
+#about_tour .city_time_list {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+#about_tour .city_time_list .icon-aim:before {
+  content: "";
+  background: url(../../../images/loc1.svg) center no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+#about_tour .city_time_list .mr10 {
+  margin-right: 10px !important;
+}
+#about_tour .city_time_list .icon-fire:before {
+  content: "\e900";
+}
+#about_tour .city_time_list .icon-time:before {
+  content: "";
+  background: url(../../../images/icon7.svg) center no-repeat;
+  display: inline-block;
+  width: 10px;
+  height: 16px;
+}
+#about_tour .city_time_list .icon-map-pointer:before {
+  content: "\e903";
+  font-size: 110%;
+}
+#about_tour .city_time_list .icon-night:before {
+  background: url(../../../images/icon3.svg) center no-repeat;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+}
+#about_tour .city_time_list .icon-type_tour .path1:before {
+  content: "\e907";
+}
+#about_tour .city_time_list .icomoon {
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#about_tour .tour_description {
+  overflow-wrap: anywhere;
+}
+
+.title2 {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1.5em;
+  letter-spacing: -2px;
+  margin: 25px 0;
+}
+
+.blue {
+  color: #071b4e !important;
+}
+
+.countries_list {
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d7d7d7;
+  max-width: 500px;
+}
+
+.countries_list i {
+  color: #ff9700;
+  margin-right: 10px;
+}
+
+.countries_list a {
+  color: #071b4e;
+}
+
+a {
+  color: black;
+}
+
+.service_captions,
+.service_list_6,
+.info_block_,
+.faq_tour,
+.service_list_1,
+.service_list_7,
+.bl_socials {
+  display: none;
+}
+
+#tour_my_calendar.calendar_block,
+#currency_history.calendar_block {
+  border-radius: 20px;
+  border: 1px solid #aebbe0;
+  box-shadow: 0 0 0 transparent;
+}
+
+.icomoon {
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.calendar_block {
+  position: relative;
+  width: 350px;
+  margin-left: 27px;
+  float: right;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+}
+
+#tour_my_calendar .calendar,
+#currency_history .calendar {
+  color: #071b4e;
+  background: transparent;
+}
+
+.calendar {
+  position: relative;
+  padding: 20px;
+  color: #fff;
+  border-radius: 11px;
+  background: rgba(7, 27, 78, 0.3019607843);
+}
+
+#tour_my_calendar .calendar,
+#currency_history .calendar {
+  color: #071b4e;
+}
+
+#tour_my_calendar .my_calendar_title,
+#currency_history .my_calendar_title {
+  text-align: center;
+  font-size: 16px;
+  color: #071b4e;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #aebbe0;
+}
+
+.calendar {
+  color: #fff;
+}
+
+#tour_my_calendar .event_buttons,
+#currency_history .event_buttons {
+  text-align: right;
+  margin-top: 12px;
+}
+
+.calendar_block .calendar_caption {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  width: calc(100% - 70px);
+  margin-bottom: 20px;
+}
+
+.fa .fa-chevron-right {
+  display: none;
+}
+
+.event-calendar {
+  width: 100%;
+}
+
+#tour_my_calendar .next_previous,
+#tour_my_calendar .next_previous,
+#currency_history .next_previous,
+#currency_history .next_previous {
+  color: #071b4e;
+}
+
+.fa,
+.fas {
+  font-weight: 900;
+}
+
+.fa {
+  font-family: "Font Awesome 5 Free";
+}
+
+.fa,
+.fab,
+.fal,
+.far,
+.fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+table {
+  background-color: transparent;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.event-calendar thead {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #aebbe0;
+}
+
+#tour_my_calendar .event-calendar td,
+#currency_history .event-calendar td {
+  width: 40px;
+}
+
+.event-calendar td {
+  font-size: 12px;
+  height: 64px;
+  width: 40px;
+  padding: 0 2px;
+  padding-top: 0px;
+  vertical-align: top;
+  padding-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#tour_my_calendar .events.seats4 {
+  background-color: #ffa415;
+}
+
+#tour_my_calendar .date_has_event .events {
+  border: 1px solid #071b4e;
+  border-radius: 8px;
+  line-height: 1;
+  padding: 4px 1px;
+}
+
+.date_has_event .events {
+  height: 100%;
+  transition: 0.5s;
+  position: relative;
+}
+
+.fa-check-circle::before {
+  content: "\f058";
+}
+
+.price_green {
+  color: green;
+}
+
+.dnone {
+  display: none;
+}
+
+.next {
+  display: none !important;
+}
+
+.day_legend {
+  display: flex;
+}
+
+.ml10 {
+  margin-left: 10px !important;
+}
+
+.icomoon.icon-fire {
+  padding-top: 5px;
+}
+
+.day_legend div > div {
+  font-size: 11px;
+  line-height: 22px;
+  font-weight: 700;
+}
+
+.events:hover,
+.events.current {
+  background: #fff;
+  color: #071b4e;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+#tour_my_calendar .date_has_event:hover > div,
+#tour_my_calendar .date_has_event > div.current,
+#currency_history .date_has_event:hover > div,
+#currency_history .date_has_event > div.current {
+  box-shadow: 0px 0px 18px rgba(7, 27, 78, 0.5);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+#tour_my_calendar .date_has_event .events.events_orange:hover,
+#currency_history .date_has_event .events.events_orange:hover {
+  box-shadow: 0px 0px 18px rgba(255, 151, 0, 0.5);
+}
+
+.events_popup_info {
+  padding: 3px;
+  background: #fff;
+  z-index: 10;
+  min-width: 100%;
+  left: 0;
+  position: absolute;
+}
+
+.events_popup_info > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.day_legend div > div.seats_guaranteed i {
+  font-size: 13px;
+  text-align: center;
+}
+
+.icon-fire {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url(../../../images/fire1.png) center no-repeat;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+.day_legend div > div.seats_1:before {
+  background-color: #fff;
+}
+
+.day_legend div > div.seats_2::before {
+  background-color: #2893d9;
+}
+
+.day_legend div > div.seats_3:before {
+  background-color: #73a91d;
+}
+
+.day_legend div > div.seats_4:before {
+  background-color: #ffa415;
+}
+
+.day_legend div > div.seats_5:before {
+  background-color: #dd1925;
+}
+
+.seats_1::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  border: 1px solid #ccc;
+  position: relative;
+  left: -5px;
+  top: 3px;
+}
+
+.seats_2::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  position: relative;
+  left: -5px;
+  top: 3px;
+}
+
+.seats_3::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  position: relative;
+  left: -5px;
+  top: 3px;
+}
+
+.seats_4::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  position: relative;
+  left: -5px;
+  top: 3px;
+}
+
+.seats_5::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  position: relative;
+  left: -5px;
+  top: 3px;
+}
+
+@media (max-width: 760px) {
+  .calendar_block {
+    position: relative;
+    width: 333px;
+    margin-left: 0;
+    float: right;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+  }
+}/*# sourceMappingURL=AdriaticNoNightTourDescription.css.map */

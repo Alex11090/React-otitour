@@ -1,0 +1,27 @@
+{
+  "name": "backendparser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.3.5",
+    "body-parser": "^1.20.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cherio": "^1.0.0-rc.2",
+    "chromium": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "pupeteer": "0.0.1",
+    "puppeteer": "^19.11.1",
+    "puppeteer-core": "^24.1.1",
+    "randomstring": "^1.2.3"
+  }
+}

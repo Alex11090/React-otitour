@@ -1,0 +1,125 @@
+@charset "UTF-8";
+:global(.dropdown-item.active) {
+  color: yellow !important;
+  background-color: rgb(247, 123, 123) !important;
+}
+
+.bgTop {
+  background-color: rgba(216, 33, 36, 0.8705882353);
+  font-size: 14px;
+  color: white;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+.bgTop .spanTop {
+  padding-top: 3px;
+  font-size: 12px;
+}
+
+.icoTop {
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+
+.telTop {
+  font-size: 12px;
+  color: white;
+}
+
+.bgbodytertiary {
+  background-color: rgba(216, 33, 36, 0.8705882353);
+  position: sticky !important;
+  top: 0;
+  z-index: 15;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 1px;
+  font-size: 14px;
+}
+.bgbodytertiary .navImg {
+  width: 110px;
+}
+.bgbodytertiary .brand {
+  color: white;
+  font-size: 12px;
+}
+.bgbodytertiary .navLink {
+  color: white !important;
+}
+.bgbodytertiary .navLink:hover {
+  color: yellow !important;
+}
+.bgbodytertiary .navDropdown > * {
+  color: rgb(255, 255, 255) !important;
+}
+.bgbodytertiary .navDropdown > * > a {
+  color: rgb(255, 255, 255) !important;
+  font-size: 14px;
+}
+.bgbodytertiary .navDropdown > * > a:hover {
+  background-color: #fa7575;
+}
+.bgbodytertiary .collapse {
+  flex-grow: 0;
+}
+
+.navbar-nav > .nav-link {
+  margin-left: 12px !important;
+}
+
+.dropdown-toggle {
+  color: white !important; /* Заголовок меню будет белого цвета */
+}
+
+.navbar-toggler {
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .bgbodytertiary {
+    position: sticky !important;
+    top: 0;
+    z-index: 15;
+  }
+}
+.navbar-collapse .header {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(216, 33, 36, 0.8705882353);
+  width: 100%;
+  padding: 5px 0 5px 0;
+}
+.navbar-collapse .header .logoImg {
+  max-width: 120px;
+}
+.navbar-collapse .header .haederNav {
+  width: 77%;
+  align-self: center;
+}
+.navbar-collapse .header .haederNav .nav_menuTop {
+  display: flex;
+  color: white;
+}
+.navbar-collapse .header .haederNav .nav_menuTop a {
+  margin-left: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+.navbar-collapse .header .haederNav .sp_column {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 5px 0;
+}
+.navbar-collapse .header .haederNav .nav_menu {
+  display: flex;
+}
+.navbar-collapse .header .haederNav .nav_menu .itemNav2 {
+  margin-left: 10px;
+  color: white;
+}
+.navbar-collapse .header .haederNav .nav_menu .itemNav2 a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}/*# sourceMappingURL=header.module.css.map */

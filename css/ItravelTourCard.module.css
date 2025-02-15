@@ -1,0 +1,86 @@
+@charset "UTF-8";
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
+}
+.container .searchResultTour {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #fff;
+}
+.container .searchResultTour .tour_photo {
+  flex: 0 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+.container .searchResultTour .tour_info .title {
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding-right: 40px;
+  line-height: 36px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1196dd;
+}
+.container .searchResultTour .tour_info .tour_price {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #646464;
+}
+.container .searchResultTour .tour_info .tour_info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  position: relative;
+  color: #9d9d9d;
+}
+
+.swiper_slide {
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #83ff8b;
+  padding-bottom: 13px;
+}
+.swiper_slide > div:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: white;
+  background-color: rgb(74, 74, 243); /* ваш цвет текста */
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0 auto;
+    max-width: 85%;
+  }
+  .container .searchResultTour {
+    display: block;
+  }
+  .container .searchResultTour .tour_photo {
+    margin: 0 auto 16px;
+    width: 100%;
+    max-width: 375px;
+    max-height: 280px;
+  }
+  .container .searchResultTour .tour_info .title {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 0;
+  }
+  .container .searchResultTour .tour_info .tour_price {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=ItravelTourCard.module.css.map */

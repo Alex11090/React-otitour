@@ -1,0 +1,28 @@
+.online {
+  color: #c6c3c3;
+  font-size: 12px;
+  text-align: end;
+  margin: 4px 29px;
+}
+
+.title {
+  font-family: Montserrat, sans-serif;
+  color: #323232;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.tours {
+  font-family: Montserrat, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 760px) {
+  .tours {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}/*# sourceMappingURL=ListTouristCards.module.css.map */

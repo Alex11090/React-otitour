@@ -1,0 +1,42 @@
+.slick-track {
+    /* left: 43px !important; */
+    
+  }
+
+  .slick-list {
+    /* margin-left: 25px; */
+  }
+  .slick-slider  {
+    /* margin: 0 auto; */
+   /* margin: 0 20px 41px 20px; */
+   width: 85%;
+   margin: 0 auto;
+   margin-bottom: 41px;
+  }
+
+  .slick-next:before {
+
+    color: black;
+  }
+  .slick-prev:before {
+
+    color: black;
+  }
+
+
+
+  @media (max-width: 760px) {
+
+    .slick-slider  {
+      /* margin: 0 auto; */
+      width: 85%;
+      margin: 0 auto;
+      margin-bottom: 26px;
+    }
+
+    .accordion-body {
+      margin-top: 27px;
+      padding: 2px;
+    }
+
+  }

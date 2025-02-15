@@ -1,0 +1,25 @@
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+.container .online {
+  color: #c6c3c3;
+  font-size: 12px;
+  text-align: end;
+  margin: 4px 29px;
+}
+.container .title {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 24px;
+  text-align: center;
+}
+.container .tours {
+  margin-top: 16px;
+}
+.container .pagination .pagination_list {
+  list-style-type: none;
+  display: table;
+  margin: 20px auto;
+  display: flex;
+}/*# sourceMappingURL=AdriaticNewYearListTouristcards.module.css.map */

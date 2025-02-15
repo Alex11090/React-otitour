@@ -1,0 +1,443 @@
+ html {
+   /* background-color: #f7f7f7; */
+
+ }
+
+ .container {
+   max-width: 80%;
+   margin: 0 auto;
+   font-family: "Montserrat", sans-serif;
+ }
+
+ /* Общие стили для аккордеона */
+
+ .body {
+   /* background-color: #f7f7f7; */
+
+ }
+
+ .cmsmasters_toggles {
+   background-color: #fff;
+   padding: 20px;
+ }
+
+ /* Стили для каждого пункта аккордеона */
+ .cmsmasters_toggle_wrap {
+   /* margin-bottom: 20px; */
+   border-bottom: 1px solid #ccc;
+ }
+
+
+
+ /* Стили для заголовка пункта аккордеона */
+ .cmsmasters_toggle_title {
+   cursor: pointer;
+   padding: 10px;
+   display: flex;
+   justify-content: space-between;
+   flex-direction: row-reverse;
+   align-items: center;
+   text-decoration: none;
+   background-color: #f7f7f7;
+ }
+
+ .cmsmasters_toggle_title a {
+   color: #8e8e8e;
+   font-size: 19px;
+ }
+
+ /* Стили для стрелочки вниз */
+ .cmsmasters_toggle_title .cmsmasters_toggle_arrow {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border: solid #7c7c7c;
+   border-width: 0 2px 2px 0;
+   transform: rotate(45deg);
+   transition: transform 0.3s ease-in-out;
+ }
+
+ /* Стили для открытого пункта */
+ .cmsmasters_toggle_wrap.active .cmsmasters_toggle_title .cmsmasters_toggle_arrow {
+   transform: rotate(-135deg);
+ }
+
+ /* Стили для контента пункта аккордеона */
+ .cmsmasters_toggle {
+   display: none;
+   padding: 10px;
+ }
+
+ /* Стили для разделения контента пункта аккордеона серой линией */
+ .cmsmasters_toggle_inner {
+   border-right: 1px solid #ccc;
+   padding-right: 10px;
+ }
+
+ .cmsmasters_toggle_inner pre {
+   white-space: pre-wrap;
+   /* Разрешает перенос строк */
+   word-wrap: break-word;
+   /* Разрешает перенос слов при необходимости */
+   overflow-wrap: break-word;
+   /* Для поддержки браузерами */
+   max-width: 100%;
+   /* Максимальная ширина блока */
+   margin: 0;
+   /* Убираем внешние отступы */
+   padding: 10px;
+   /* Добавляем внутренние отступы */
+   border: 1px solid #ddd;
+   /* Добавляем рамку */
+   border-radius: 5px;
+   /* Добавляем закругление углов */
+   background-color: #f9f9f9;
+   /* Цвет фона */
+   font-size: 16px;
+   font-family: "Montserrat", sans-serif;
+ }
+
+ /* Стили для желтого цвета при наведении на заголовок */
+ .cmsmasters_toggle_title:hover>a {
+   color: rgb(247, 214, 28);
+
+ }
+
+ .cmsmasters_tab_inner a:not([href="https://www.i-travel.com.ua/podbor-tura/?datefrom=21.10.2023&amp;dateto=28.10.2023"]) {
+   pointer-events: none;
+   color: #999;
+   text-decoration: none;
+   cursor: default;
+ }
+
+ /* points------------------------------------------------ */
+
+ .points {
+   text-align: center;
+   /* border: solid 1px black; */
+   border-radius: 8px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   margin-top: 24px;
+ }
+
+
+ /* tabs------------------------------------------------ */
+
+ .cmsmasters_icon_list_item_title {
+   font-size: 22px;
+ }
+
+ .cmsmasters_tabs {
+   position: relative
+ }
+
+ .cmsmasters_tabs:after {
+   content: '.';
+   display: block;
+   clear: both;
+   height: 0;
+   visibility: hidden;
+   overflow: hidden
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_list {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   position: relative;
+   overflow: hidden;
+   margin-top: 35px;
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_list:after {
+   content: '.';
+   display: block;
+   clear: both;
+   height: 0;
+   visibility: hidden;
+   overflow: hidden
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_list_item {
+   /* display: block;
+   margin: 0;
+   padding: 0 */
+   margin: 0 5px 5px 0;
+   float: left;
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_list_item:before {
+   display: none;
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_list_item a {
+   display: block;
+   padding: 2px 20px;
+   position: relative;
+   cursor: pointer;
+   border-radius: 4px;
+   color: #fff;
+   background-color: #d1d5d8;
+   line-height: 38px;
+ }
+
+ /* .cmsmasters_tabs .cmsmasters_tabs_list_item a[class^=cmsmasters-icon-],
+ .cmsmasters_tabs .cmsmasters_tabs_list_item a[class^=cmsmasters_theme_icon_] {
+   padding: 2px 20px 2px 55px;
+ } */
+
+ .cmsmasters_tabs .cmsmasters_tabs_list_item a:before {
+   font-size: 18px;
+   line-height: 20px;
+   width: 1em;
+   height: 1em;
+   margin: auto !important;
+   position: absolute;
+   left: 20px;
+   right: auto;
+   top: 0;
+   bottom: 0
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_list_item.current_tab a,
+ .cmsmasters_tabs .cmsmasters_tabs_list_item:hover a {
+   outline: none;
+   background-color: #f9bf00;
+   transition: background-color 0.5s;
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_list_item.current_tab a {
+   background-color: #f9bf00;
+ }
+
+
+ .cmsmasters_tabs .cmsmasters_tabs_wrap {
+   position: relative;
+   overflow: hidden;
+   margin-top: 39px;
+ }
+
+ .cmsmasters_tabs .cmsmasters_tab {
+   display: none
+ }
+
+ .cmsmasters_tabs .cmsmasters_tab:after {
+   content: '.';
+   display: block;
+   clear: both;
+   height: 0;
+   visibility: hidden;
+   overflow: hidden
+ }
+
+ .cmsmasters_tabs .cmsmasters_tab.active_tab {
+   display: block
+ }
+
+ .cmsmasters_tabs .cmsmasters_tab_inner {
+   position: relative;
+   overflow: hidden;
+   overflow-x: auto;
+ }
+
+ .cmsmasters_tabs .cmsmasters_tab_inner .cmsmasters_video_wrap {
+   padding-bottom: 52.5%
+ }
+
+ .cmsmasters_tabs.tabs_mode_tab .cmsmasters_tabs_list_item {
+   margin: 0 5px 5px 0;
+   float: left
+ }
+
+ .cmsmasters_tabs.tabs_mode_tab .cmsmasters_tabs_list_item:last-child {
+   margin: 0
+ }
+
+ .cmsmasters_tabs.tabs_mode_tab .cmsmasters_tab_inner {
+   padding: 36px 0 0
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour {
+   display: table
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour .cmsmasters_tabs_list {
+   display: table-cell;
+   width: 25%;
+   vertical-align: top
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour .cmsmasters_tabs_list_item {
+   margin: 0 0 5px
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour .cmsmasters_tabs_list_item:last-child {
+   margin: 0
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour .cmsmasters_tabs_wrap {
+   display: table-cell;
+   width: 75%;
+   vertical-align: top
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour .cmsmasters_tab_inner {
+   padding: 0 0 0 30px
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right {
+   direction: rtl
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right .cmsmasters_tabs_list {
+   text-align: right;
+   direction: ltr
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right .cmsmasters_tabs_list_item a[class^=cmsmasters-icon-],
+ .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right .cmsmasters_tabs_list_item a[class^=cmsmasters_theme_icon_] {
+   padding: 2px 55px 2px 20px
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right .cmsmasters_tabs_list_item a:before {
+   left: auto;
+   right: 20px
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right .cmsmasters_tabs_wrap {
+   direction: ltr
+ }
+
+ .cmsmasters_tabs_wrap .color_1 {
+   color: #ccc
+ }
+
+ .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right .cmsmasters_tab_inner {
+   padding: 0 30px 0 0;
+   text-align: right
+ }
+
+ .cmsmasters_icon_list_items.cmsmasters_icon_list_type_block {
+   padding: 0;
+   margin: 0;
+ }
+
+ .cmsmasters_icon_list_items {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   position: relative;
+ }
+
+ .cmsmasters_icon_list_items.cmsmasters_icon_list_type_block .cmsmasters_icon_list_item {
+   display: block;
+   width: 100%;
+   padding: 0 0 30px;
+   position: relative;
+   overflow: hidden;
+ }
+
+
+
+
+
+
+ /* gallery-------------------- */
+ .cmsmasters_gallery {
+   display: flex;
+   flex-wrap: wrap;
+   overflow-x: auto;
+   justify-content: center
+     /* Добавьте полосу прокрутки по горизонтали, если нужно */
+ }
+
+ .cmsmasters_gallery_item {
+   flex: 0 0 auto;
+   margin-right: 10px;
+   /* Регулируйте расстояние между изображениями */
+ }
+
+ .cmsmasters_gallery_item img {
+   width: 230px;
+   /* Замените это значение на нужную вам ширину */
+   height: auto;
+   /* Сохраняет пропорции при изменении ширины */
+ }
+
+ /* swiper------------------------------------------------- */
+ .swiper {
+   margin-top: 18px;
+ }
+
+ .swiper_slide {
+   text-align: center;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+   background-color: #83ff8b;
+   padding-bottom: 13px
+ }
+
+ .swiper_slide>div:first-child {
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+   color: white;
+   background-color: rgb(74 74 243);
+   /* ваш цвет текста */
+ }
+
+ /* valute----------------------------------------------- */
+ /* .international-currency,
+ .national-currency {
+   display: none;
+
+ } */
+ .currency-toggle {
+   display: flex;
+   justify-content: flex-end;
+ }
+
+ .carrencyUA {
+   cursor: pointer;
+ }
+
+ .carrencyEUR {
+   cursor: pointer;
+ }
+
+
+
+ .international-currency {
+   display: none;
+ }
+
+ .infoItem {
+   display: flex;
+ }
+
+ .titleTourDescr {
+   text-align: center;
+   font-size: 21px;
+   margin-top: 30px;
+ }
+
+ .carrencyUA.active,
+ .carrencyEUR.active {
+   color: blue;
+ }
+
+ @media (max-width: 760px) {
+   .container {
+     max-width: 95%;
+     margin: 0 auto;
+     font-family: "Montserrat", sans-serif;
+
+
+   }
+
+   .cmsmasters_tabs_list_item {
+     margin: 0 5px 5px 0;
+     float: none !important;
+     text-align: center;
+   }
+ }

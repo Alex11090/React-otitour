@@ -1,0 +1,21 @@
+.btn_mdl {
+  //   width: 60px;
+  position: fixed;
+  bottom: 45px;
+  left: 30px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  // background-color: #007bff;
+  color: #fff;
+  background: rgba(216, 33, 36, 0.8705882353);
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  display: none;
+  z-index: 10;
+}
+/* Показываем кнопку, когда пользователь прокручивает вниз на 500px */
+.scrolled {
+  display: block;
+}

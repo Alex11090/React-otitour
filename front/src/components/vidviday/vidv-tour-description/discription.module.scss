@@ -1,0 +1,81 @@
+/* The following line can be included in a src/App.scss */
+@import "~bootstrap/scss/bootstrap";
+.body {
+  // overflow: hidden;
+}
+:global(.ul) {
+  list-style: none !important;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .priceTour {
+    // text-align: center;
+    // color: #d82124de;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+  }
+}
+
+.shedule {
+  display: flex;
+  justify-content: space-around;
+
+  .sheduleItem {
+    margin-left: 20px;
+  }
+}
+.accordIcon {
+  margin-right: 15px;
+}
+
+.imgWidth {
+  width: 95%; /* Задайте нужную ширину */
+  height: 250px; /* Задайте нужную высоту */
+  object-fit: cover; /* Сохраняет соотношение сторон и заполняет контейнер */
+}
+.imgWidthTop {
+  width: 95%;
+  height: 250px;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  // .body {
+  //     overflow-x: hidden;
+  // }
+  .slick-track {
+    // left: 43px !important;
+  }
+
+  .imgWidthTop {
+    width: 95%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  // .slick-slider  {
+  /* margin: 0 auto; */
+  //    margin: 0 0 41px 0;
+  //   }
+}
+
+@media (max-width: 480px) {
+  .imgWidthTop {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .imgWidth {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+}
