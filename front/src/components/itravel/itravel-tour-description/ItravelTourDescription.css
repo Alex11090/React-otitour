@@ -12,6 +12,7 @@
  /* Общие стили для аккордеона */
 
  .body {
+   font-family: "Montserrat", sans-serif;
    /* background-color: #f7f7f7; */
 
  }
@@ -228,7 +229,7 @@
    clear: both;
    height: 0;
    visibility: hidden;
-   overflow: hidden
+   overflow: hidden;
  }
 
  .cmsmasters_tabs .cmsmasters_tab.active_tab {
@@ -283,7 +284,13 @@
  }
 
  .cmsmasters_tabs.tabs_mode_tour .cmsmasters_tab_inner {
+
    padding: 0 0 0 30px
+ }
+
+ .cmsmasters_tabs .cmsmasters_tabs_wrap .cmsmasters_tab_inner>pre {
+   font-family: "Montserrat", sans-serif;
+   font-size: 16px;
  }
 
  .cmsmasters_tabs.tabs_mode_tour.tabs_pos_right {

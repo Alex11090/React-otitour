@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/itravel" element={<ItravelListTouristCards />} />
           <Route
             exact
-            path="/itravel/description_tour/tours/:id"
+            path="/itravel/description_tour/tours/:title"
             element={<ItravelTourDiscription />}
           />
           <Route

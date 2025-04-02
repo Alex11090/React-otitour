@@ -23,7 +23,7 @@ module.exports = async () => {
 
         if (currencyText.includes('EUR')) {
             await page.evaluate(() => {
-                document.querySelector('#currencies > div > button:nth-child(2)').click();
+                document.querySelector('#currencies > div > button:nth-child(3)').click();
             });
         } else if (currencyText.includes('UAH')) {
             console.log('Валюта уже UAH');

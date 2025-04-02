@@ -1,153 +1,130 @@
-import React, { useRef, useState, useEffect } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import Buttonmodal from "../../feedback-form/button-modal/Buttonmodal";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import "./ItravelTourDescription.css";
+import React, { useRef, useState, useEffect } from "react"; // Импортируем React и необходимые хуки
+import axios from "axios"; // Импортируем axios для запросов к API
+import { useParams } from "react-router-dom"; // Хук для получения параметров из URL
+import { Swiper, SwiperSlide } from "swiper/react"; // Импортируем компоненты Swiper для карусели
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules"; // Модули Swiper для управления навигацией, пагинацией, скроллом и доступностью
+import Buttonmodal from "../../feedback-form/button-modal/Buttonmodal"; // Импортируем компонент для отображения кнопки/modal
+import "swiper/css"; // Стили для Swiper
+import "swiper/css/navigation"; // Стили для навигации Swiper
+import "swiper/css/pagination"; // Стили для пагинации Swiper
+import "swiper/css/scrollbar"; // Стили для скроллбара Swiper
+import "./ItravelTourDescription.css"; // Подключаем стили для компонента
 
 const ItravelTourDiscription = () => {
-  window.scrollTo(0, 0);
-  const [discript, setDiscript] = useState([]);
-  const [datestour, setDatestour] = useState([]);
-  const { id } = useParams();
+  window.scrollTo(0, 0); // Прокручиваем страницу в верх, когда компонент загружается
+  const [discript, setDiscript] = useState([]); // Хук состояния для описания тура
+  const [datestour, setDatestour] = useState([]); // Хук состояния для дат туров
+  const { title } = useParams(); // Получаем параметр title из URL
+
+  // Используем useEffect для загрузки данных о туре с API
   useEffect(() => {
-    // Удаляем кавычки из заголовка
-    // const cleanedTitle = title.replace(/[^а-яїєґі]/gi, "");
     axios
-      .post(`https://turyukr.com/api/tours/get-itemitravel/${id}`)
+      .post(`http://localhost:5500/api/tours/get-itemitravel/${title}`) // Делаем запрос на сервер для получения данных о туре по title
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
-          setDiscript(res.data);
+          setDiscript(res.data); // Если запрос успешен, сохраняем данные в состояние
         }
       });
-  }, [id]);
+  }, [title]); // Хук запускается при изменении параметра title в URL
 
-  const accordionRef = useRef(null);
+  const accordionRef = useRef(null); // Создаём ссылку на элемент для аккордеона
 
+  // Второй useEffect для обработки данных, когда описание (discript) загружено
   useEffect(() => {
     if (discript?.id) {
-      const btnDel = document.querySelector(".button_wrap");
-      if (btnDel) {
-        btnDel.style.display = "none";
-      }
+      const btnDel = document.querySelector(".button_wrap"); // Ищем кнопку удаления
+      if (btnDel) btnDel.style.display = "none"; // Скрываем кнопку удаления, если она есть
 
       if (discript.tourDates) {
+        // Если есть данные о датах туров
         const dataArray = discript.tourDates
-          .split(/\n\s*\n/)
-          .map((date) => date.split(/\n/).map(line => line.trim()).filter(Boolean));
-
-        console.log('After splitting and trimming:', dataArray); // Проверим промежуточный результат
+          .split(/\n\s*\n/) // Разбиваем данные по блокам
+          .map((date) =>
+            date.split(/\n/).map((line) => line.trim()).filter(Boolean) // Для каждого блока разделяем по строкам и очищаем от пустых строк
+          );
 
         const processedData = dataArray.reduce((accumulator, dateBlock) => {
-          let currentBlock = [];
+          let currentBlock = []; // Массив для текущего блока данных
 
           for (let i = 0; i < dateBlock.length; i++) {
-            const line = dateBlock[i];
-            console.log('Processing line:', line); // Логируем каждую строку
+            const line = dateBlock[i]; // Каждая строка в блоке
 
             if (line.includes("Залишилось 0 місць") || line.includes("Детальніше")) {
-              continue; // Пропускаем строки, которые не нужны
+              continue; // Пропускаем строки с ненужной информацией
             }
 
-            // const match = line.match(/^(\d{2}\.\d{2} - \d{2}\.\d{2})(від .+|від .+ грн\.)$/);
+            // Регулярное выражение для парсинга дат и цен
             const match = line.match(/^(\d{2}\.\d{2} - \d{2}\.\d{2})(від .+|online.+)$/);
             if (match) {
-              const [_, dates, price] = match;
-              console.log('Match found:', dates, price); // Логируем совпадения
-              let finalPrice = price;
-              // Проверка на "online-пошук"
-              if (finalPrice.toLowerCase().includes("online")) {
-                finalPrice = "online пошук на головній"; // Заменяем на цену "від 0 €" или по вашему желанию
-              }
-              // if (finalPrice.includes("грн")) {
-              //   finalPrice = finalPrice.replace("від", "від 349 €"); // Заменяем "грн" на евро
-              // }
-
-              currentBlock.push(dates, finalPrice); // Добавляем найденные данные в блок
+              const [_, dates, price] = match; // Извлекаем даты и цену
+              let finalPrice = price.toLowerCase().includes("online")
+                ? "online пошук на головній"
+                : price; // Заменяем текст для online
+              currentBlock.push(dates, finalPrice); // Добавляем в текущий блок
             } else {
-              currentBlock.push(line); // Если нет совпадений, просто добавляем строку
+              currentBlock.push(line); // Добавляем строку без изменений
             }
           }
 
-          // Добавляем обработанный блок в итоговый массив
           if (currentBlock.length > 0) {
-            accumulator.push(currentBlock);
+            accumulator.push(currentBlock); // Добавляем обработанный блок в итоговый массив
           }
 
-          return accumulator;
+          return accumulator; // Возвращаем итоговый массив
         }, []);
 
-        console.log('Processed data:', processedData); // Логируем результат
-
-        setDatestour(processedData);
+        setDatestour(processedData); // Обновляем состояние с данными о датах туров
       }
 
-      console.log(datestour);
+      // Работаем с вкладками, чтобы переключать между ними
+      document.querySelectorAll(".cmsmasters_tabs").forEach((tabContainer) => {
+        const tabs = tabContainer.querySelectorAll(".cmsmasters_tabs_list_item");
+        const tabContents = tabContainer.querySelectorAll(".cmsmasters_tab");
 
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", function (event) {
+            event.preventDefault(); // Отключаем стандартное поведение ссылки
 
-      const tabs = document.querySelectorAll(".cmsmasters_tabs_list_item");
-      const tabContents = document.querySelectorAll(".cmsmasters_tab");
+            tabs.forEach((t) => t.classList.remove("current_tab")); // Убираем активный класс у всех вкладок
+            tabContents.forEach((content) => (content.style.display = "none")); // Скрываем все вкладки
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener("click", (event) => {
-          event.preventDefault();
+            this.classList.add("current_tab"); // Добавляем активный класс текущей вкладке
 
-          tabs.forEach((t) => {
-            t.classList.remove("current_tab");
+            const tabId = this.id.replace("cmsmasters_tabs_list_item_", "cmsmasters_tab_");
+            const targetTab = tabContainer.querySelector(`#${tabId}`);
+            if (targetTab) targetTab.style.display = "block"; // Показываем содержимое активной вкладки
           });
-          tabContents.forEach((content) => {
-            content.classList.remove("active_tab");
-          });
-
-          tab.classList.add("current_tab");
-          tabContents[index].classList.add("active_tab");
         });
       });
 
-      const elements = document.querySelectorAll(".infoItem");
-
-      elements.forEach((element) => {
+      // Обрабатываем изменение валют
+      document.querySelectorAll(".infoItem").forEach((element) => {
         if (
           element.textContent.includes(
             "Необхідно буде внести передоплату у розмірі 10% протягом 2 днів(я)"
           )
         ) {
-          element.innerHTML = element.innerHTML.replace("10%", "не менше 50%");
-          element.innerHTML = element.innerHTML.replace(
-            "протягом 2 днів(я)",
-            ""
-          );
+          element.innerHTML = element.innerHTML.replace("10%", "не менше 50%"); // Заменяем текст в контенте
+          element.innerHTML = element.innerHTML.replace("протягом 2 днів(я)", ""); // Убираем старую информацию
         }
       });
 
-      const toggleWraps = accordionRef.current.querySelectorAll(
-        ".cmsmasters_toggle_wrap"
-      );
+      // Работа с аккордеоном
+      const toggleWraps = accordionRef.current.querySelectorAll(".cmsmasters_toggle_wrap");
 
       toggleWraps.forEach((toggleWrap) => {
-        const toggleTitle = toggleWrap.querySelector(
-          ".cmsmasters_toggle_title"
-        );
+        const toggleTitle = toggleWrap.querySelector(".cmsmasters_toggle_title");
         const toggleContent = toggleWrap.querySelector(".cmsmasters_toggle");
 
         toggleTitle.addEventListener("click", () => {
-          toggleWrap.classList.toggle("active");
-
-          if (toggleWrap.classList.contains("active")) {
-            toggleContent.style.display = "block";
-          } else {
-            toggleContent.style.display = "none";
-          }
+          toggleWrap.classList.toggle("active"); // Переключаем активное состояние аккордеона
+          toggleContent.style.display = toggleWrap.classList.contains("active")
+            ? "block" // Показываем контент, если он активен
+            : "none"; // Скрываем, если не активен
         });
       });
 
-      // перекл валюти-----------------------------------
+      // Обработчики для переключения валют
       const btnUA = document.querySelector(".carrencyUA");
       const btnEUR = document.querySelector(".carrencyEUR");
 
@@ -155,69 +132,71 @@ const ItravelTourDiscription = () => {
         const curEUR = document.querySelectorAll(".international-currency");
         const curUA = document.querySelectorAll(".national-currency");
 
-        // Получаем ссылки на элементы .carrencyUA и .carrencyEUR
         const carrencyUA = document.querySelector(".carrencyUA");
         const carrencyEUR = document.querySelector(".carrencyEUR");
 
         if (curEUR && curUA) {
           curEUR.forEach((elem) => {
-            elem.style.display = currency === "EUR" ? "block" : "none";
+            elem.style.display = currency === "EUR" ? "block" : "none"; // Показываем или скрываем валюту в EUR
           });
 
           curUA.forEach((elem) => {
-            elem.style.display = currency === "UA" ? "block" : "none";
+            elem.style.display = currency === "UA" ? "block" : "none"; // Показываем или скрываем валюту в UAH
           });
 
-          // Добавляем/удаляем класс "актив" для .carrencyUA и .carrencyEUR
-          carrencyUA.classList.toggle("active", currency === "UA");
+          carrencyUA.classList.toggle("active", currency === "UA"); // Устанавливаем активную валюту
           carrencyEUR.classList.toggle("active", currency === "EUR");
         }
       };
 
-      btnEUR.addEventListener("click", () => handleCurrencyChange("EUR"));
-      btnUA.addEventListener("click", () => handleCurrencyChange("UA"));
+      btnEUR.addEventListener("click", () => handleCurrencyChange("EUR")); // При клике на EUR меняем валюту
+      btnUA.addEventListener("click", () => handleCurrencyChange("UA")); // При клике на UAH меняем валюту
 
+      // Очистка обработчиков при размонтировании компонента
       return () => {
+        document.querySelectorAll(".cmsmasters_tabs_list_item").forEach((tab) => {
+          tab.removeEventListener("click", () => { });
+        });
+
         toggleWraps.forEach((toggleWrap) => {
-          const toggleTitle = toggleWrap.querySelector(
-            ".cmsmasters_toggle_title"
-          );
+          const toggleTitle = toggleWrap.querySelector(".cmsmasters_toggle_title");
           toggleTitle.removeEventListener("click", () => { });
         });
+
+        btnEUR.removeEventListener("click", () => handleCurrencyChange("EUR"));
+        btnUA.removeEventListener("click", () => handleCurrencyChange("UA"));
       };
     }
-  }, [discript]);
+  }, [discript]); // Эффект будет перезапускаться при изменении discript
 
   return (
     <div className="container">
-      <div className="titleTourDescr">{discript.title}</div>
+      <div className="titleTourDescr">{discript.title}</div> {/* Заголовок тура */}
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        navigation
-        spaceBetween={3}
-        slidesPerView={5}
+        modules={[Navigation, Pagination, Scrollbar, A11y]} // Модули Swiper
+        navigation // Включаем навигацию
+        spaceBetween={3} // Расстояние между слайдами
+        slidesPerView={5} // Количество слайдов на экране
         breakpoints={{
           1024: { slidesPerView: 5, spaceBetween: 3 },
           768: { slidesPerView: 3, spaceBetween: 2 },
           480: { slidesPerView: 2, spaceBetween: 1 },
           320: { slidesPerView: 1, spaceBetween: 1 },
-        }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        }} // Настройки для разных разрешений экрана
       >
         {datestour.map((date, index) => (
           <SwiperSlide key={index} className="swiper_slide">
             {date.map((item, innerIndex) => (
               <div key={innerIndex}>
                 {innerIndex === 2 && (
-                  <div style={{ fontWeight: 'bold', color: 'red' }} class="national-currency">{item.trim()}</div>
+                  <div style={{ fontWeight: "bold", color: "red" }} className="national-currency">
+                    {item.trim()} {/* Если это цена в UAH */}
+                  </div>
                 )}
                 {innerIndex === 3 && (
-                  <div class="international-currency">{item.trim()}</div>
+                  <div className="international-currency">{item.trim()}</div> /* Если это цена в EUR */
                 )}
-                {innerIndex !== 2 && innerIndex !== 3 && (
-                  <div >{item.trim()}</div>
-                )}
+                {innerIndex !== 2 && innerIndex !== 3 && <div>{item.trim()}</div>} {/* Для остальных данных */}
               </div>
             ))}
           </SwiperSlide>
@@ -225,25 +204,15 @@ const ItravelTourDiscription = () => {
       </Swiper>
       <hr />
 
-      <div class="currency-toggle">
-        <div class="carrencyUA active">UAH</div> /
-        <div class="carrencyEUR">EUR</div>
+      <div className="currency-toggle">
+        <div className="carrencyUA active">UAH</div> / {/* Переключатели валют */}
+        <div className="carrencyEUR">EUR</div>
       </div>
 
-      <div
-        className="cmsmasters_toggles"
-        ref={accordionRef}
-        dangerouslySetInnerHTML={{ __html: discript.infoAccord }}
-      ></div>
-      <div
-        className="points"
-        dangerouslySetInnerHTML={{ __html: discript.tourPoints }}
-      ></div>
-      <div
-        className="cmsmasters_tabs"
-        dangerouslySetInnerHTML={{ __html: discript.discrTuor }}
-      ></div>
-      <Buttonmodal />
+      <div className="cmsmasters_toggles" ref={accordionRef} dangerouslySetInnerHTML={{ __html: discript.infoAccord }}></div> {/* Аккордеоны */}
+      <div className="points" dangerouslySetInnerHTML={{ __html: discript.tourPoints }}></div> {/* Дополнительные точки */}
+      <div className="cmsmasters_tabs" dangerouslySetInnerHTML={{ __html: discript.discrTuor }}></div> {/* Вкладки */}
+      <Buttonmodal /> {/* Кнопка для модального окна */}
     </div>
   );
 };

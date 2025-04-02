@@ -18,43 +18,100 @@ module.exports = async () => {
     console.log("Page loaded");
 
 
+    // async function loadAllTours() {
+    //   let nextPageButton;
+    //   const loadMoreButtonSelector = '.load-more-items';
+
+    //   do {
+    //     // Ищем кнопку "Загрузить еще"
+    //     nextPageButton = await page.$(loadMoreButtonSelector);
+
+    //     if (nextPageButton) {
+    //       // Проверяем, можно ли кликнуть по кнопке
+    //       const isClickable = await nextPageButton.evaluate(element => {
+    //         const { width, height } = element.getBoundingClientRect();
+    //         return width > 0 && height > 0;
+    //       });
+
+    //       if (isClickable) {
+    //         // Если кнопка кликабельна, кликаем по ней
+    //         await nextPageButton.click();
+    //       } else {
+    //         // Если кнопка не кликабельна, выводим сообщение и завершаем цикл
+    //         console.log("Элемент не кликабельный. Подождем еще.");
+    //         break;
+    //       }
+    //     } else {
+    //       // Если кнопку не найдено, выводим сообщение и завершаем цикл
+    //       console.log("Кнопка не найдена. Все туры загружены.");
+    //       break;
+    //     }
+    //   } while (nextPageButton);
+
+    //   console.log('Все туры загружены.');
+    // }
+
+
+    // // Вызываем функцию для загрузки туров
+    // await loadAllTours();
+
     async function loadAllTours() {
       let nextPageButton;
       const loadMoreButtonSelector = '.load-more-items';
 
-      do {
-        // Ищем кнопку "Загрузить еще"
-        nextPageButton = await page.$(loadMoreButtonSelector);
+      while (true) {
+        try {
+          // Ожидаем появления кнопки (если не появится за 5 сек, считаем, что её нет)
+          await page.waitForSelector(loadMoreButtonSelector, { timeout: 5000 });
 
-        if (nextPageButton) {
-          // Проверяем, можно ли кликнуть по кнопке
-          const isClickable = await nextPageButton.evaluate(element => {
-            const { width, height } = element.getBoundingClientRect();
+          // Ищем кнопку
+          nextPageButton = await page.$(loadMoreButtonSelector);
+
+          if (!nextPageButton) {
+            console.log("Кнопка не найдена. Все туры загружены.");
+            break;
+          }
+
+          // Проверяем, видима ли кнопка в окне просмотра
+          const isVisible = await nextPageButton.evaluate(el => {
+            const { width, height } = el.getBoundingClientRect();
             return width > 0 && height > 0;
           });
 
-          if (isClickable) {
-            // Если кнопка кликабельна, кликаем по ней
-            await nextPageButton.click();
-          } else {
-            // Если кнопка не кликабельна, выводим сообщение и завершаем цикл
-            console.log("Элемент не кликабельный. Подождем еще.");
+          if (!isVisible) {
+            console.log("Кнопка есть, но не видима. Завершаем загрузку.");
             break;
           }
-        } else {
-          // Если кнопку не найдено, выводим сообщение и завершаем цикл
-          console.log("Кнопка не найдена. Все туры загружены.");
+
+          // Прокручиваем страницу к кнопке (чтобы избежать ошибки клика)
+          await nextPageButton.evaluate(el => el.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+          await page.waitForTimeout(500); // Даем время на прокрутку
+
+          // Проверяем, доступна ли кнопка для клика
+          const isClickable = await nextPageButton.isIntersectingViewport();
+          if (!isClickable) {
+            console.log("Кнопка не в области видимости. Ждем...");
+            await page.waitForTimeout(1000);
+            continue;
+          }
+
+          // Кликаем по кнопке
+          await nextPageButton.click();
+          console.log("Клик по кнопке выполнен. Загружаем еще туры...");
+
+          // Ждем немного перед следующим поиском кнопки
+          await page.waitForTimeout(2000);
+        } catch (error) {
+          console.log("Ошибка при загрузке туров:", error.message);
           break;
         }
-      } while (nextPageButton);
+      }
 
-      console.log('Все туры загружены.');
+      console.log("Все туры загружены.");
     }
 
-
-    // Вызываем функцию для загрузки туров
+    // Вызываем функцию
     await loadAllTours();
-
 
 
 

@@ -9,8 +9,11 @@
   font-size: 14px;
   color: white;
   padding: 0 !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
   display: flex !important;
-  justify-content: space-around !important;
+  -ms-flex-pack: distribute !important;
+      justify-content: space-around !important;
   font-family: "Montserrat", sans-serif;
   margin-top: 10px;
 }
@@ -61,8 +64,19 @@
 .bgbodytertiary .navDropdown > * > a:hover {
   background-color: #fa7575;
 }
+.bgbodytertiary .navDropdown.show {
+  display: block;
+  background-color: rgba(216, 33, 36, 0.871);
+}
 .bgbodytertiary .collapse {
-  flex-grow: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+
+.dropdown-menu.show {
+  display: block;
+  background-color: rgba(216, 33, 36, 0.871);
 }
 
 .navbar-nav > .nav-link {
@@ -85,8 +99,11 @@
   }
 }
 .navbar-collapse .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   background-color: rgba(216, 33, 36, 0.8705882353);
   width: 100%;
   padding: 5px 0 5px 0;
@@ -96,9 +113,12 @@
 }
 .navbar-collapse .header .haederNav {
   width: 77%;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 .navbar-collapse .header .haederNav .nav_menuTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: white;
 }
@@ -113,6 +133,8 @@
   padding: 5px 0;
 }
 .navbar-collapse .header .haederNav .nav_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .navbar-collapse .header .haederNav .nav_menu .itemNav2 {

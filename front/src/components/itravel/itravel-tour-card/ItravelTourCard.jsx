@@ -47,6 +47,20 @@ function ItravelToursCard(props) {
 
       setDatesAll(dataArray);
     }
+    // ------------ клікаємо то ховаємо кнопку Показати ще------------------------
+    const viewCont = document.querySelectorAll(".inline-toggle-block");
+    const toggleBtn = document.querySelectorAll(".inline-toggle-btn");
+
+    viewCont.forEach((w) => {
+      w.style.display = "block";
+    });
+
+    toggleBtn.forEach((btn) => {
+      btn.style.display = "none";
+    });
+
+
+
   }, [props.dates]);
 
 
@@ -56,7 +70,7 @@ function ItravelToursCard(props) {
   return (
     <div className={itavelToursCardCss.container}>
       <Link
-        to={`/itravel/description_tour/tours/${props.id}`}
+        to={`/itravel/description_tour/tours/${props.title}`}
         className={itavelToursCardCss.link}
       >
         <div className={itavelToursCardCss.searchResultTour}>

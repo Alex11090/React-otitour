@@ -17,7 +17,7 @@ Router.get('/adriaticnewyearget-list', controllers.AdriaticGetListNewYearTours);
 Router.post('/get-adriaticnewyear/:title', controllers.GetOneTourAdriaticNewYear);
 Router.post('/get-itemadriaticnonight/:title', controllers.GetOneTourAdriaticNoNight);
 Router.post('/get-itemadriatic/:title', controllers.GetOneTourAdriatic);
-Router.post('/get-itemitravel/:id', controllers.GetOneTourItravel);
+Router.post('/get-itemitravel/:title', controllers.GetOneTourItravel);
 Router.post('/get-item/:title', controllers.GetOneTour);
 // Router.get('/get-page', controllers.GetPageTours)
 

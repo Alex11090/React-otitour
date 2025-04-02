@@ -110,7 +110,8 @@ a {
 #currency_history.calendar_block {
   border-radius: 20px;
   border: 1px solid #aebbe0;
-  box-shadow: 0 0 0 transparent;
+  -webkit-box-shadow: 0 0 0 transparent;
+          box-shadow: 0 0 0 transparent;
 }
 
 .icomoon {
@@ -130,7 +131,8 @@ a {
   margin-left: 27px;
   float: right;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px #000;
+  -webkit-box-shadow: 0px 0px 10px #000;
+          box-shadow: 0px 0px 10px #000;
 }
 
 #tour_my_calendar .calendar,
@@ -263,6 +265,7 @@ table {
 
 .date_has_event .events {
   height: 100%;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   position: relative;
 }
@@ -284,6 +287,8 @@ table {
 }
 
 .day_legend {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -313,14 +318,16 @@ table {
 #tour_my_calendar .date_has_event > div.current,
 #currency_history .date_has_event:hover > div,
 #currency_history .date_has_event > div.current {
-  box-shadow: 0px 0px 18px rgba(7, 27, 78, 0.5);
+  -webkit-box-shadow: 0px 0px 18px rgba(7, 27, 78, 0.5);
+          box-shadow: 0px 0px 18px rgba(7, 27, 78, 0.5);
   border-radius: 8px;
   text-decoration: none;
 }
 
 #tour_my_calendar .date_has_event .events.events_orange:hover,
 #currency_history .date_has_event .events.events_orange:hover {
-  box-shadow: 0px 0px 18px rgba(255, 151, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 18px rgba(255, 151, 0, 0.5);
+          box-shadow: 0px 0px 18px rgba(255, 151, 0, 0.5);
 }
 
 .events_popup_info {
@@ -333,10 +340,17 @@ table {
 }
 
 .events_popup_info > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .day_legend div > div.seats_guaranteed i {
@@ -436,6 +450,7 @@ table {
     margin-left: 0;
     float: right;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px #000;
+    -webkit-box-shadow: 0px 0px 10px #000;
+            box-shadow: 0px 0px 10px #000;
   }
 }/*# sourceMappingURL=AdriaticNewYearTourDescription.css.map */

@@ -64,12 +64,23 @@
     // color: rgb(255, 255, 255) !important;
     background-color: #fa7575;
   }
-
+  // .navDropdown {
+  //   .show {
+  //     background-color: rgba(216, 33, 36, 0.871) !important;
+  //   }
+  // }
+  .navDropdown.show {
+    display: block;
+    background-color: rgba(216, 33, 36, 0.871);
+  }
   .collapse {
     flex-grow: 0;
   }
 }
-
+.dropdown-menu.show {
+  display: block;
+  background-color: rgba(216, 33, 36, 0.871);
+}
 .navbar-nav > .nav-link {
   margin-left: 12px !important;
 }

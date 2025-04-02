@@ -15,9 +15,34 @@ const cors = require('cors');
 // const CronJob = require('cron').CronJob;
 const toursRouter = require('./Routes/tours');
 
-mongoose.connect(config.mongoKey)
-    .then(() => console.log('Connected to mongo successfully'))
-    .catch(err => console.error(err))
+// mongoose.connect(config.mongoKey)
+//     .then(() => console.log('Connected to mongo successfully'))
+//     .catch(err => console.error(err))
+
+mongoose.connect(config.mongoKey, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(async () => {
+        console.log("✅ Connected to MongoDB successfully");
+
+
+    })
+    .catch((err) => {
+        console.error("❌ MongoDB connection error:", err);
+        process.exit(1); // Завершаем процесс с кодом ошибки
+    });
+
+// Обрабатываем корректное закрытие соединения при завершении работы сервера
+process.on("SIGINT", async () => {
+    console.log("🛑 Closing MongoDB connection...");
+    await mongoose.connection.close();
+    console.log("🔌 MongoDB disconnected.");
+    process.exit(0);
+});
+
+
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -27,8 +52,8 @@ app.use('/api/tours', toursRouter)
 // parserTango();
 // vidvParser();
 // itravelParser();
-// adriaticParser();
-// adriaticNoNight();  
+// // adriaticParser();
+// adriaticNoNight();
 // adriaticNYearparser();
 // ---------------------------------------------------------
 // Создайю новую задачу cron для запуска парсера каждые 24 часа.
@@ -84,6 +109,8 @@ function broadcastOnlineUsers() {
         }
     });
 }
+
+
 
 server.listen(config.port, () => {
     console.log(`Server listening on port ${config.port}`)

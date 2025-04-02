@@ -1,5 +1,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -11,14 +12,23 @@
   width: 150px;
   color: #fff;
   line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   background: #071b4e;
   padding: 5px 15px;
   position: relative;
-  order: 1;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 .block_date_sm .date_descr {
   font-size: 14px;
@@ -42,14 +52,23 @@
   width: 150px;
   color: #fff;
   line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   background: #071b4e;
   padding: 5px 15px;
   position: relative;
-  order: 3;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
 }
 .block_price_sm .price {
   font-size: 16px;
@@ -113,6 +132,8 @@
 }
 
 .tour_item_sm {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background: #fff;
   margin-bottom: 2px;
@@ -136,7 +157,9 @@
   text-align: center;
   position: relative;
   padding: 5px 20px;
-  order: 2;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 .tour_item_sm .tour_descr_sm .tour_name {
   font-size: 16px;
@@ -160,8 +183,12 @@
   font-size: 12px;
 }
 .tour_item_sm .tour_descr_sm .tour_extra .tour_inf {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-right: 1.2vw;
   color: #253d59;
   font-size: 12px;
@@ -221,9 +248,13 @@
     overflow: hidden;
     padding: 0 10px 3px;
     color: #fff;
-    flex-wrap: wrap;
-    align-self: auto;
-    align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-item-align: auto;
+        align-self: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     line-height: 1;
     text-align: center;
     display: block;

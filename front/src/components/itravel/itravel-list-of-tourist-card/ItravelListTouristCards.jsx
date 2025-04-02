@@ -9,12 +9,16 @@ import { useState, useEffect } from "react";
 function ItravelListTouristCards() {
   const [list, setList] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState(0); // Хранит количество пользователей онлайн
+
   useEffect(() => {
-    axios.get(`https://turyukr.com/api/tours/itravelget-list`).then((res) => {
+    axios.get(`http://localhost:5500/api/tours/itravelget-list`).then((res) => {
       if (res.status === 200) {
         setList(res.data);
       }
+
+
     });
+
     // // ------------користувачі онлайн-------------------------
     // const socket = new WebSocket("ws://localhost:5500"); // Укажите ваш WebSocket-сервер
     const socket = new WebSocket("wss://turyukr.com/socket"); // Если сервер на продакшн-сервере
@@ -30,6 +34,8 @@ function ItravelListTouristCards() {
         // Обновляем состояние (например, в React-компоненте), чтобы показать количество активных пользователей.
       }
     };
+
+
 
     // Закрываем соединение при размонтировании компонента
     return () => socket.close();
@@ -63,6 +69,8 @@ function ItravelListTouristCards() {
       />
     );
   });
+
+
 
   return (
     <div className={ItravelListTouristCardCss.container}>

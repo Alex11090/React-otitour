@@ -4,6 +4,8 @@
   margin: 0 auto;
 }
 .container .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
   margin-top: 18px;
@@ -16,6 +18,7 @@
   line-height: 38px;
   border-radius: 4px;
   color: white;
+  -webkit-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
   cursor: pointer;
 }
@@ -37,9 +40,16 @@
   .container {
     max-width: 93%;
     margin: 0 auto;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-top: 17px;
   }
 }/*# sourceMappingURL=AdriaticTourDescription.module.css.map */
